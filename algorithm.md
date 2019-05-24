@@ -457,3 +457,49 @@ int main () {
 }
 ```
 **[Run Code](https://rextester.com/CZWQY27014)**
+
+# remove
+**Description :**  Removes any number of elements with value v by shifting those element towards the end of the container.
+
+**Example** :
+```cpp
+ int main() {
+    std::vector<int> vector1 = {1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9};
+    // vector1.size() = 18
+
+    std::cout << '\n' << "Removing elements with value: 3" << '\n';
+    std::vector<int>::iterator it;
+    it = std::remove(vector1.begin(),vector1.end(), 3);
+    std::cout << "New End Iterator index: " << it - vector1.begin() <<'\n';
+    // vector1.size() = 18
+
+    // Use erase-remove idiom to change the actual physical size of the container
+    vector1.erase(it, vector1.end());
+    // vector1.size() = 16
+}
+```
+[See Sample code](algorithm/remove.cpp)
+[Run Code](https://rextester.com/FJE91315)
+
+# remove_if
+**Description :**  Removes any number of elements with value v by shifting those element towards the end of the container if a condition is met.
+
+**Example** :
+```cpp
+bool isEven(int x){
+    return (x % 2 == 0);
+}
+
+int main() {
+    std::vector<int> vector1 = {1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9};
+    // vector1.size() = 18
+
+    std::cout << '\n' << "Removing elements according to a condition (If it's even, it gets removed)" << '\n';
+    std::vector<int>::iterator it = std::remove_if(vector1.begin(),vector1.end(),isEven);
+    std::cout << "New End Iterator index: " << it - vector1.begin() <<'\n';
+    // vector1.size() = 18
+
+}
+```
+[See Sample code](algorithm/remove_if.cpp)
+[Run Code](https://rextester.com/WSKPB28562)
